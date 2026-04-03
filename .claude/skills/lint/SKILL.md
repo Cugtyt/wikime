@@ -20,13 +20,13 @@ Notes files:
 
 Read all wiki markdown files, then check for:
 
-### 1. Broken Wikilinks
-Scan all articles for `[[...]]` wikilinks. For each one, verify the target file exists at `wiki/<link>.md`. Report any broken links.
+### 1. Broken Links
+Scan all articles for markdown links `[text](path.md)`. For each relative link, verify the target file exists (resolving the path relative to the linking file). Report any broken links.
 
-**Auto-fix:** Remove broken wikilinks from `## Related` sections.
+**Auto-fix:** Remove broken links from `## Related` sections.
 
 ### 2. Orphan Articles
-Find wiki articles (excluding `_index.md` files) that are not linked from any other article's wikilinks or `_index.md`. Every article should be reachable from the master index.
+Find wiki articles (excluding `_index.md` files) that are not linked from any other article's markdown links or `_index.md`. Every article should be reachable from the master index.
 
 **Auto-fix:** Add missing entries to the relevant `_index.md`.
 
@@ -57,7 +57,7 @@ Print a markdown report with sections for each check:
 ```
 # Wiki Health Report
 
-## Broken Wikilinks
+## Broken Links
 - ✅ No broken links (or list them)
 
 ## Orphan Articles

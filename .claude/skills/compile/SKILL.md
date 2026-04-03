@@ -38,7 +38,7 @@ Use Glob to find `wiki/**/_index.md` files. Read `wiki/_index.md` if it exists �
 For each piece of content in the notes, decide:
 - **Existing article?** → Read it, merge new information, update `last_updated` and `sources` frontmatter.
 - **New article needed?** → Plan the topic folder and article filename.
-- **New cross-links?** → Plan wikilinks between related articles.
+- **New cross-links?** → Plan markdown links between related articles.
 
 Group related content. One note entry might touch multiple articles. Multiple note entries might feed into one article.
 
@@ -60,7 +60,7 @@ last_updated: YYYY-MM-DD
 Include:
 - A clear synthesis of the information (not just copied text from notes)
 - `## Key Takeaways` section with bullet points
-- `## Related` section with `[[topic/article-name]]` wikilinks
+- `## Related` section with standard markdown links using relative paths
 
 **Topic _index.md files** list all articles in the topic:
 ```markdown
@@ -69,7 +69,7 @@ Include:
 Brief description of this topic area.
 
 ## Articles
-- [[topic/article-name]] — one-line summary
+- [Article Title](article-name.md) — one-line summary
 ```
 
 **Master wiki/_index.md** lists all topics:
@@ -77,7 +77,7 @@ Brief description of this topic area.
 # Wiki Index
 
 ## Topics
-- [[topic-name/_index]] — brief topic description (N articles)
+- [Topic Name](topic-name/_index.md) — brief topic description (N articles)
 ```
 
 Create topic directories with `mkdir -p` before writing files.
@@ -93,7 +93,7 @@ Create topic directories with `mkdir -p` before writing files.
 - **Synthesize, don't copy.** Wiki articles should be well-written summaries, not copy-paste from notes.
 - **Merge, don't duplicate.** If a topic already has an article, update it rather than creating a new one.
 - **Kebab-case** for all folder and file names.
-- **Wikilinks** use `[[topic/article-name]]` format (no .md extension).
+- **Links** use standard markdown relative links: `[Title](relative/path.md)`.
 - **Every article** needs frontmatter with title, topic, sources, last_updated.
 - **Every topic folder** needs an `_index.md`.
 - **Master index** (`wiki/_index.md`) must be kept up to date.

@@ -24,8 +24,8 @@ last_updated: YYYY-MM-DD
 ---
 ```
 
-- Use `[[topic/article-name]]` wikilinks for cross-references
-- Each article has a `## Related` section with wikilinks
+- Use standard markdown links for cross-references: `[Article Title](../topic/article-name.md)` (relative paths from the linking file)
+- Each article has a `## Related` section with markdown links
 - Each article has a `## Key Takeaways` section
 
 ## Commands
@@ -37,7 +37,7 @@ last_updated: YYYY-MM-DD
 ## Conventions
 
 - All content is markdown
-- Obsidian-compatible wikilinks: `[[topic/article-name]]`
+- Standard markdown relative links for cross-references (no wikilinks)
 - Topic folders are lowercase kebab-case
 - Article filenames are lowercase kebab-case
 - _index.md files list all articles in their directory with one-line summaries
