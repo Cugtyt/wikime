@@ -79,7 +79,23 @@ Print a markdown report with sections for each check:
 X issues found, Y auto-fixed, Z need review.
 ```
 
-If any auto-fixes were applied, stage and commit:
+## Action
+
+After presenting the report, decide what to do:
+
+**Straightforward auto-fixes** (broken links, missing index entries, index consistency) — apply immediately without asking. These are mechanical and safe.
+
+**Judgment calls** (merging duplicates, creating articles for missing coverage, resolving stale content) — present your recommendation and wait for user input before acting. Example:
+```
+Recommended actions:
+- AUTO-FIX: Added 2 missing entries to wiki/kubernetes/_index.md
+- QUESTION: wiki/python/async-patterns.md and wiki/python/concurrency.md look like duplicates — merge them? If so, which title do you prefer?
+- SUGGESTION: "grafana" appears 4 times in notes — want me to run /compile to create an article?
+```
+
+If no judgment calls are needed and all fixes are mechanical, just apply them and report what you did.
+
+If any fixes were applied, stage and commit:
 ```bash
 git add wiki/
 git commit -m "wikime: lint — auto-fixed N issues"

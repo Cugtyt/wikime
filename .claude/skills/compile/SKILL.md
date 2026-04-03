@@ -42,7 +42,27 @@ For each piece of content in the notes, decide:
 
 Group related content. One note entry might touch multiple articles. Multiple note entries might feed into one article.
 
-## Step 5: Write wiki updates
+## Step 5: Confirm or proceed
+
+Review your plan from Step 4. If every decision is clear and unambiguous — obvious topic assignments, straightforward merges into existing articles — proceed directly to Step 6 without asking.
+
+**But if any decision requires judgment, stop and ask the user.** Examples:
+- A note could belong to multiple topics and it's not obvious which
+- Two existing articles could both be the merge target
+- A note covers something entirely new and the topic name/structure isn't obvious
+- Content seems contradictory to what's already in the wiki
+
+When asking, present your plan as a summary:
+```
+Compile plan:
+- CREATE: wiki/topic/article-name.md — brief description
+- UPDATE: wiki/topic/existing-article.md — what's being added
+- QUESTION: "This note about X could go under topic-a or topic-b — which do you prefer?"
+```
+
+Wait for user input before proceeding. If the user gives feedback, adjust and re-present if needed.
+
+## Step 6: Write wiki updates
 
 For each article to create or update:
 
@@ -82,7 +102,7 @@ Brief description of this topic area.
 
 Create topic directories with `mkdir -p` before writing files.
 
-## Step 6: Update .wikime and commit
+## Step 7: Update .wikime and commit
 
 1. Write the current HEAD commit hash to `.wikime`
 2. Stage all changes: `git add wiki/ .wikime`
