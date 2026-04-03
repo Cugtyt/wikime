@@ -12,12 +12,18 @@ You are the wikime compiler. Your job is to read changed notes and update the wi
 
 Read `.wikime` to get the last compiled commit hash. If the file doesn't exist, this is a first compile — all notes should be processed.
 
-Changed files since last compile:
-!`cat .wikime 2>/dev/null && echo "---LAST_HASH---" || echo "FIRST_COMPILE"`
-!`git rev-parse HEAD`
-!`git diff $(cat .wikime 2>/dev/null || echo "4b825dc642cb6eb9a060e54bf899d15363da7b23")..HEAD --name-only -- notes/`
+Last compiled commit (empty means first compile):
+!`cat .wikime 2>/dev/null || echo FIRST_COMPILE`
 
-If the output after FIRST_COMPILE or ---LAST_HASH--- shows no changed files in notes/, respond "No notes changes to compile." and stop.
+Current HEAD:
+!`git rev-parse HEAD`
+
+All notes files:
+!`find notes/ -name "*.md" 2>/dev/null | sort`
+
+**If FIRST_COMPILE:** process ALL notes files listed above.
+
+**Otherwise:** use the Bash tool to run `git diff <last-hash>..HEAD --name-only -- notes/` (substituting the hash from .wikime) to find which notes changed. If no notes changed, respond "No notes changes to compile." and stop.
 
 ## Step 2: Read changed notes
 
