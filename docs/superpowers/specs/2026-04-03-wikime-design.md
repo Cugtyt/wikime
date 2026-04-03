@@ -60,12 +60,12 @@ Synthesized content from multiple weekly notes.
 - ...
 
 ## Related
-- [[kubernetes/helm-patterns]]
-- [[decisions/migrate-to-flannel]]
+- [Helm Patterns](../kubernetes/helm-patterns.md)
+- [Migrate to Flannel](../decisions/migrate-to-flannel.md)
 ```
 
 - **YAML frontmatter** with `sources` linking back to contributing notes (temporal backlinks).
-- **Wikilinks** (`[[topic/article]]`) for cross-references — Obsidian renders these natively.
+- **Standard markdown links** (`[Title](relative/path.md)`) for cross-references — works in all renderers.
 - **`_index.md`** per topic folder: brief summary of every article in that topic.
 - **`wiki/_index.md`** (master index): lists all topics with one-line descriptions. This is the LLM's entry point for navigation.
 - The LLM **merges** new info into existing articles rather than creating duplicates.
@@ -85,7 +85,7 @@ Incrementally compiles notes into wiki articles using git diff.
 5. For each piece of new content, the LLM decides:
    - Belongs in an existing article → read it, merge new info, update `last_updated` and `sources`.
    - New topic/article → create folder, article, and update `_index.md` files.
-   - New cross-links → add wikilinks between related articles.
+   - New cross-links → add standard markdown links between related articles.
 6. Write updated/new wiki files.
 7. Update `wiki/_index.md` and relevant topic `_index.md` files.
 8. Write current HEAD hash to `.wikime`.
@@ -107,8 +107,8 @@ No configuration needed — the LLM naturally routes based on time words vs. top
 
 Health check over the wiki. Scans for:
 
-- **Broken wikilinks** — `[[topic/article]]` pointing to nonexistent files.
-- **Orphan articles** — wiki articles with no backlinks from other articles.
+- **Broken links** — markdown links pointing to nonexistent files.
+- **Orphan articles** — wiki articles with no links from other articles.
 - **Stale articles** — `last_updated` is old but source notes have newer content.
 - **Missing coverage** — topics mentioned frequently in notes but lacking a wiki article.
 - **Duplicate concepts** — two articles covering the same thing under different names.
@@ -129,9 +129,9 @@ Everything is stored in the repo: notes, wiki, state (`.wikime`), and commands (
 
 Only processes notes that changed since last compile. The `.wikime` file stores the commit hash of the last successful compilation. This keeps compile fast even as the notes grow.
 
-### Obsidian-compatible
+### Standard markdown
 
-The wiki uses standard markdown with YAML frontmatter and `[[wikilinks]]`. Obsidian renders this natively with its graph view, backlinks panel, and search. The repo can optionally include `.obsidian/` config.
+The wiki uses standard markdown with YAML frontmatter and relative markdown links. Works in any renderer (GitHub, VS Code, Obsidian, etc.). The repo can optionally include `.obsidian/` config for Obsidian users.
 
 ## Implementation
 

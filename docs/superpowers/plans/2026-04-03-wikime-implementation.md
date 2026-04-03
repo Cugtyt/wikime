@@ -74,8 +74,8 @@ last_updated: YYYY-MM-DD
 ---
 ```
 
-- Use `[[topic/article-name]]` wikilinks for cross-references
-- Each article has a `## Related` section with wikilinks
+- Use standard markdown links for cross-references: `[Article Title](../topic/article-name.md)`
+- Each article has a `## Related` section with markdown links
 - Each article has a `## Key Takeaways` section
 
 ## Commands
@@ -87,7 +87,7 @@ last_updated: YYYY-MM-DD
 ## Conventions
 
 - All content is markdown
-- Obsidian-compatible wikilinks: `[[topic/article-name]]`
+- Standard markdown relative links for cross-references (no wikilinks)
 - Topic folders are lowercase kebab-case
 - Article filenames are lowercase kebab-case
 - _index.md files list all articles in their directory with one-line summaries
@@ -184,7 +184,7 @@ Use Glob to find `wiki/**/_index.md` files. Read `wiki/_index.md` if it exists �
 For each piece of content in the notes, decide:
 - **Existing article?** → Read it, merge new information, update `last_updated` and `sources` frontmatter.
 - **New article needed?** → Plan the topic folder and article filename.
-- **New cross-links?** → Plan wikilinks between related articles.
+- **New cross-links?** → Plan markdown links between related articles.
 
 Group related content. One note entry might touch multiple articles. Multiple note entries might feed into one article.
 
@@ -206,7 +206,7 @@ last_updated: YYYY-MM-DD
 Include:
 - A clear synthesis of the information (not just copied text from notes)
 - `## Key Takeaways` section with bullet points
-- `## Related` section with `[[topic/article-name]]` wikilinks
+- `## Related` section with standard markdown links using relative paths
 
 **Topic _index.md files** list all articles in the topic:
 ```markdown
@@ -215,7 +215,7 @@ Include:
 Brief description of this topic area.
 
 ## Articles
-- [[topic/article-name]] — one-line summary
+- [Article Title](article-name.md) — one-line summary
 ```
 
 **Master wiki/_index.md** lists all topics:
@@ -223,7 +223,7 @@ Brief description of this topic area.
 # Wiki Index
 
 ## Topics
-- [[topic-name/_index]] — brief topic description (N articles)
+- [Topic Name](topic-name/_index.md) — brief topic description (N articles)
 ```
 
 Create topic directories with `mkdir -p` before writing files.
@@ -239,7 +239,7 @@ Create topic directories with `mkdir -p` before writing files.
 - **Synthesize, don't copy.** Wiki articles should be well-written summaries, not copy-paste from notes.
 - **Merge, don't duplicate.** If a topic already has an article, update it rather than creating a new one.
 - **Kebab-case** for all folder and file names.
-- **Wikilinks** use `[[topic/article-name]]` format (no .md extension).
+- **Links** use standard markdown relative links: `[Title](relative/path.md)`.
 - **Every article** needs frontmatter with title, topic, sources, last_updated.
 - **Every topic folder** needs an `_index.md`.
 - **Master index** (`wiki/_index.md`) must be kept up to date.
@@ -255,7 +255,7 @@ Run `/compile` in Claude Code. Verify:
 3. It creates `wiki/_index.md` with all topics listed
 4. It creates topic `_index.md` files
 5. Articles have correct frontmatter with `sources: [notes/2026/04-w1.md]`
-6. Articles have wikilinks in `## Related` sections
+6. Articles have markdown links in `## Related` sections
 7. `.wikime` contains the current HEAD hash
 8. Changes are auto-committed
 
@@ -405,13 +405,13 @@ Notes files:
 
 Read all wiki markdown files, then check for:
 
-### 1. Broken Wikilinks
-Scan all articles for `[[...]]` wikilinks. For each one, verify the target file exists at `wiki/<link>.md`. Report any broken links.
+### 1. Broken Links
+Scan all articles for markdown links `[text](path.md)`. For each relative link, verify the target file exists. Report any broken links.
 
-**Auto-fix:** Remove broken wikilinks from `## Related` sections.
+**Auto-fix:** Remove broken links from `## Related` sections.
 
 ### 2. Orphan Articles
-Find wiki articles (excluding `_index.md` files) that are not linked from any other article's wikilinks or `_index.md`. Every article should be reachable from the master index.
+Find wiki articles (excluding `_index.md` files) that are not linked from any other article's markdown links or `_index.md`. Every article should be reachable from the master index.
 
 **Auto-fix:** Add missing entries to the relevant `_index.md`.
 
@@ -442,7 +442,7 @@ Print a markdown report with sections for each check:
 ```
 # Wiki Health Report
 
-## Broken Wikilinks
+## Broken Links
 - ✅ No broken links (or list them)
 
 ## Orphan Articles
@@ -522,7 +522,7 @@ Run `/compile`. Verify:
 2. It updates existing articles (kubernetes, python, decisions) with new info
 3. It does NOT recreate articles from scratch — it merges
 4. `last_updated` and `sources` frontmatter are correct
-5. New wikilinks added if appropriate
+5. New cross-links added if appropriate
 6. Auto-committed
 
 - [ ] **Step 4: Run /query to verify the new content is accessible**
