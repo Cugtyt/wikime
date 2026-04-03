@@ -64,43 +64,14 @@ Wait for user input before proceeding. If the user gives feedback, adjust and re
 
 ## Step 6: Write wiki updates
 
-For each article to create or update:
-
-**New articles** must follow this format:
-```yaml
----
-title: Article Title
-topic: topic-folder-name
-sources:
-  - notes/YYYY/MM-wN.md
-last_updated: YYYY-MM-DD
----
-```
-
-Include:
-- A clear synthesis of the information (not just copied text from notes)
-- `## Key Takeaways` section with bullet points
-- `## Related` section with standard markdown links using relative paths
-
-**Topic _index.md files** list all articles in the topic:
-```markdown
-# Topic Name
-
-Brief description of this topic area.
-
-## Articles
-- [Article Title](article-name.md) — one-line summary
-```
-
-**Master wiki/_index.md** lists all topics:
-```markdown
-# Wiki Index
-
-## Topics
-- [Topic Name](topic-name/_index.md) — brief topic description (N articles)
-```
+Follow the wiki article format and conventions defined in `CLAUDE.md`. Read it first if you haven't already.
 
 Create topic directories with `mkdir -p` before writing files.
+
+**Key rules:**
+- **Synthesize, don't copy.** Wiki articles should be well-written summaries, not copy-paste from notes.
+- **Merge, don't duplicate.** If a topic already has an article, update it rather than creating a new one.
+- Every topic folder needs an `_index.md`. Master `wiki/_index.md` must be kept up to date.
 
 ## Step 7: Update .wikime and commit
 
@@ -108,12 +79,4 @@ Create topic directories with `mkdir -p` before writing files.
 2. Stage all changes: `git add wiki/ .wikime`
 3. Commit with message: `wikime: compile — updated N articles, created M new`
 
-## Rules
-
-- **Synthesize, don't copy.** Wiki articles should be well-written summaries, not copy-paste from notes.
-- **Merge, don't duplicate.** If a topic already has an article, update it rather than creating a new one.
-- **Kebab-case** for all folder and file names.
-- **Links** use standard markdown relative links: `[Title](relative/path.md)`.
-- **Every article** needs frontmatter with title, topic, sources, last_updated.
-- **Every topic folder** needs an `_index.md`.
-- **Master index** (`wiki/_index.md`) must be kept up to date.
+Compile complete. Run `/lint` to check wiki health.

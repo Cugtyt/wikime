@@ -13,23 +13,15 @@ You are the wikime note-taker. Append the user's input to the correct weekly not
 
 ## Step 1: Determine the current week file
 
-Today's date:
-!`date +%Y-%m-%d`
+Today:
+!`date +"%A %Y-%m-%d"`
 
-Day of week:
-!`date +%A`
+Monday of this week (year, month, day, week-of-month):
+!`python3 -c "from datetime import date,timedelta;t=date.today();m=t-timedelta(days=t.weekday());w=(m.day-1)//7+1;print(f'{m.year} {m.month:02d} {m.day:02d} {w}')" 2>/dev/null || python -c "from datetime import date,timedelta;t=date.today();m=t-timedelta(days=t.weekday());w=(m.day-1)//7+1;print(f'{m.year} {m.month:02d} {m.day:02d} {w}')"` 
 
-Use the **Monday of the current week** to determine the file name:
-- Year: the year of that Monday
-- Month: the month of that Monday (zero-padded, e.g. `03`)
-- Week number within that month: count how many Mondays have occurred in that month (including this one)
+Read the output above as: `YYYY MM DD W`
 
-File path: `notes/YYYY/MM-wN.md`
-
-For example, if today is Thursday April 3 2026 and the Monday of this week is March 31:
-- The file is `notes/2026/03-w5.md` (5th Monday in March)
-
-Use the Bash tool to calculate the Monday of the current week and derive the file path.
+File path: `notes/YYYY/MM-wW.md`
 
 ## Step 2: Read or create the file
 
