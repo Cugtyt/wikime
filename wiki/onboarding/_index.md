@@ -3,4 +3,4 @@
 Team onboarding guides and knowledge transfer.
 
 ## Articles
-- [[onboarding/kubernetes-monitoring]] — Grafana dashboards and cluster observability walkthrough
+- [Kubernetes Monitoring Stack](kubernetes-monitoring.md) — Grafana dashboards and cluster observability walkthrough

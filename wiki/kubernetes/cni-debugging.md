@@ -36,4 +36,4 @@ When troubleshooting CNI issues, check the following in order:
 
 ## Related
 
-- [[onboarding/kubernetes-monitoring]] — monitoring stack for cluster observability
+- [Kubernetes Monitoring Stack](../onboarding/kubernetes-monitoring.md) — monitoring stack for cluster observability

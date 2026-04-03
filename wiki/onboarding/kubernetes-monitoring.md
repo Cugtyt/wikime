@@ -22,4 +22,4 @@ Grafana is the primary visualization layer for cluster metrics. New team members
 
 ## Related
 
-- [[kubernetes/cni-debugging]] — debugging network issues that monitoring helps surface
+- [CNI Debugging](../kubernetes/cni-debugging.md) — debugging network issues that monitoring helps surface

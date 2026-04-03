@@ -3,4 +3,4 @@
 Kubernetes cluster operations, networking, and debugging.
 
 ## Articles
-- [[kubernetes/cni-debugging]] — CNI troubleshooting runbook and Flannel MTU fix
+- [CNI Debugging](cni-debugging.md) — CNI troubleshooting runbook and Flannel MTU fix

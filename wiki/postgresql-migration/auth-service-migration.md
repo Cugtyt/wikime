@@ -32,4 +32,4 @@ Sarah and the team agreed to proceed with the migration. Legal flagged the old s
 
 ## Related
 
-- [[kubernetes/cni-debugging]] — related infrastructure work happening in parallel
+- [CNI Debugging](../kubernetes/cni-debugging.md) — related infrastructure work happening in parallel

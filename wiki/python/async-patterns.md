@@ -43,4 +43,4 @@ async def rate_limited_fetch(url):
 
 ## Related
 
-- [[postgresql-migration/auth-service-migration]] — async patterns may be relevant for migration tooling
+- [Auth Service PostgreSQL Migration](../postgresql-migration/auth-service-migration.md) — async patterns may be relevant for migration tooling
