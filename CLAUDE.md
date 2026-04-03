@@ -30,6 +30,7 @@ last_updated: YYYY-MM-DD
 
 ## Commands
 
+- `/note <what happened>` — quick-add to the current week's note file
 - `/compile` — compile notes diff into wiki
 - `/query <question>` — ask questions against the knowledge base
 - `/lint` — health check the wiki
