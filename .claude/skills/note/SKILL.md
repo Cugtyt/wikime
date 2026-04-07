@@ -62,14 +62,39 @@ Take the user's raw input and format it into clean, consistent bullet points:
 
 Append the formatted bullets under today's section.
 
-## Step 5: Show and ask to commit
+## Step 5: Impact check
 
-Show the user what was appended and where:
+Before presenting to the user, review **the entire week's note file** (not just the new bullets) for items that look like significant work but lack impact context.
+
+**Significant signals:** fixing outages, launching features, unblocking teams, making decisions, completing migrations, setting up infrastructure, resolving incidents, onboarding people.
+
+**Has impact context:** mentions who was affected, what improved, why it matters, numbers, or outcomes.
+
+**Lacks impact context:** just states what was done without the "so what."
+
+Ignore routine items (attended standup, reviewed PR, read docs) — these don't need impact.
+
+## Step 6: Show, nudge, and ask to commit
+
+Show the user what was appended:
 ```
 Added to notes/2026/03-w5.md under ## Thursday 2026-04-03:
 - First bullet point
 - Second bullet point
+```
 
+If any items this week (new or from previous days) are missing impact context, nudge:
+```
+💡 A few items this week could use impact context (helps with /review later):
+- [Mon] Fixed the Flannel MTU issue across staging — who was affected? what was the impact?
+- [Thu] Set up HPA for the auth service — why? what does this improve?
+(reply with context to add, or "skip")
+```
+
+If the user provides context, update those bullets in the note file to include it. If they say "skip", proceed.
+
+Then ask to commit:
+```
 Commit this change?
 ```
 

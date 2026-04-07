@@ -37,6 +37,7 @@ last_updated: YYYY-MM-DD
 - `/standup` — generate yesterday/today/blockers from recent notes
 - `/todos` — scan notes for open action items
 - `/report [this week|last week]` — generate weekly report
+- `/review [last 6 months|date range]` — generate performance review draft
 
 ## Conventions
 

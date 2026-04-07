@@ -25,6 +25,7 @@ Raw weekly notes in `notes/` are the input. The LLM reads your notes, extracts t
 | `/standup` | Generate yesterday/today/blockers from recent notes. |
 | `/todos` | Scan notes for open action items and infer completion status. |
 | `/report [week]` | Generate weekly report: accomplishments, decisions, blockers, next week. |
+| `/review [range]` | Generate performance review draft from months of notes. Frames work as impact, flags gaps. |
 
 ## Repo structure
 
@@ -42,7 +43,7 @@ wiki/                     ← LLM maintains this
     _index.md
     async-patterns.md
 .wikime                   ← last compiled commit hash
-.claude/skills/           ← the seven commands above
+.claude/skills/           ← the eight commands above
 ```
 
 ## Quick start
@@ -80,6 +81,15 @@ wiki/                     ← LLM maintains this
 
 /report
 > Accomplishments: resolved k8s pod eviction, postgres migration approved...
+```
+
+/review last 6 months
+> ## Impact Summary
+> - Resolved cluster-wide networking instability, unblocking 3 teams
+> - Led PostgreSQL migration, completed on schedule
+> ...
+> ## ⚠️ Items Missing Impact Context
+> - "set up HPA for auth service" — what improved?
 ```
 
 Your notes accumulate, the wiki grows, and your knowledge compounds.
