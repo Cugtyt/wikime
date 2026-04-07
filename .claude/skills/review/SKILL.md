@@ -81,17 +81,7 @@ For each major project/workstream:
 
 ## Gap Analysis
 
-After the review, add a section:
-
-```markdown
-## ⚠️ Items Missing Impact Context
-These entries look significant but the notes don't explain the "so what."
-Consider adding context before submitting your review:
-- [date] "set up HPA for auth service" — what was the motivation? what improved?
-- [date] "wrote runbook for CNI debugging" — who uses it? how often?
-```
-
-This helps the user enrich their notes retroactively for a stronger review.
+After the review, follow the Impact Context rules in `CLAUDE.md`. Flag significant items missing the "so what" so the user can enrich their notes before submitting.
 
 ## Output
 

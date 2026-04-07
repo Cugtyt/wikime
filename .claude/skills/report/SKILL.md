@@ -55,6 +55,8 @@ If no argument given, default to "this week". If "last week", use the previous w
 - Useful for 1:1 prep
 ```
 
-5. **Output to terminal only.** Do not create or modify any files.
+5. **Impact gap check.** Follow the Impact Context rules in `CLAUDE.md`. Flag significant items missing the "so what."
+
+6. **Output to terminal only.** Do not create or modify any files.
 
 If the user wants to save it, suggest: "Want me to save this? I can write it to `notes/YYYY/MM-wN-report.md`."

@@ -64,15 +64,7 @@ Append the formatted bullets under today's section.
 
 ## Step 5: Impact check
 
-Before presenting to the user, review **the entire week's note file** (not just the new bullets) for items that look like significant work but lack impact context.
-
-**Significant signals:** fixing outages, launching features, unblocking teams, making decisions, completing migrations, setting up infrastructure, resolving incidents, onboarding people.
-
-**Has impact context:** mentions who was affected, what improved, why it matters, numbers, or outcomes.
-
-**Lacks impact context:** just states what was done without the "so what."
-
-Ignore routine items (attended standup, reviewed PR, read docs) — these don't need impact.
+Review the entire week's note file for impact gaps, following the Impact Context rules in `CLAUDE.md`. Read `CLAUDE.md` first if you haven't already.
 
 ## Step 6: Show, nudge, and ask to commit
 

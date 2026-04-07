@@ -39,6 +39,23 @@ last_updated: YYYY-MM-DD
 - `/report [this week|last week]` — generate weekly report
 - `/review [last 6 months|date range]` — generate performance review draft
 
+## Impact Context
+
+The primary goal of wikime is to capture not just what happened, but why it matters. Every significant piece of work should include impact context — who was affected, what improved, why it matters, or what it unblocked.
+
+**Significant work:** fixing outages, launching features, unblocking teams, making decisions, completing migrations, setting up infrastructure, resolving incidents, onboarding people.
+
+**Routine work** (attended standup, reviewed PR, read docs) does not need impact context.
+
+**All commands that surface notes should flag impact gaps.** When a note item looks significant but lacks the "so what," nudge the user to add context. Examples:
+
+- `/note` — after formatting bullets, scan the week's notes and flag missing impact before commit
+- `/report` — include a "missing impact context" section for significant items
+- `/review` — flag gaps so the user can enrich before submitting their review
+- `/compile` — when synthesizing wiki articles, preserve and highlight impact context from notes
+
+This is not optional polish — it's the core value of the system. Notes with impact context produce strong weekly reports and performance reviews. Notes without it produce generic summaries.
+
 ## Conventions
 
 - All content is markdown
