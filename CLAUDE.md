@@ -65,7 +65,7 @@ When the wiki grows large, topics that haven't been updated in a long time shoul
 - `wiki/_index.md` — only lists active topics, with a link to the archive index
 - Archived articles are still searchable by `/query` and linkable from active articles
 - `/compile` should suggest archiving when a topic's articles are all stale (no updates in 3+ months)
-- `/lint` checks archive for consistency too
+- `/lint` treats archive differently: only check broken links and index consistency. Skip stale articles, missing coverage, and duplicates — archived content is intentionally frozen
 
 ## Conventions
 
