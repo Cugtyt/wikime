@@ -14,6 +14,23 @@ LLM-maintained personal knowledge base. Weekly work notes in `notes/` are compil
 
 **Separation rule:** `notes/` contains only human-written weekly note files (`MM-wN.md`). All generated output goes to `wiki/`, `reports/`, or `reviews/`. Skills that read notes must only process files in `notes/`.
 
+## What belongs in the wiki
+
+The wiki stores durable knowledge — things another engineer would find useful months later. Not everything in notes becomes a wiki article.
+
+**Wiki material:**
+- Incidents and fixes (with root cause and resolution)
+- Major decisions with rationale
+- Migrations and initiatives (goals, status, outcomes)
+- Reusable runbooks and procedures
+- Real technical learnings (patterns, tools, techniques)
+
+**NOT wiki material (stays in notes):**
+- Routine tasks, meetings, PR reviews
+- One-off conversations without decisions
+- Ephemeral status updates
+- Anything that won't matter in a month
+
 ## Wiki Article Format
 
 All wiki articles must use this format:
@@ -28,9 +45,43 @@ last_updated: YYYY-MM-DD
 ---
 ```
 
-- Use standard markdown links for cross-references: `[Article Title](../topic/article-name.md)` (relative paths from the linking file)
-- Each article has a `## Related` section with markdown links
-- Each article has a `## Key Takeaways` section
+### Outcome-first writing
+
+The first paragraph of every article must state: what happened, why it mattered, and who/what it affected. Lead with the outcome, not the activity.
+
+**Weak:** "Fixed the Flannel MTU issue by setting `--iface=eth0`."
+
+**Strong:** "Resolved staging CNI instability caused by MTU mismatch across nodes. Forced Flannel to use a consistent interface, stopping pod evictions and restoring cluster reliability for 3 dependent teams."
+
+Every article follows this structure:
+- **Problem:** what was wrong or changing
+- **Action/decision:** what was done or decided
+- **Outcome:** what improved, what risk was reduced, who was unblocked
+
+### Key Takeaways
+
+Each article has a `## Key Takeaways` section with concise bullet points.
+
+### Related — named relationships only
+
+Each article has a `## Related` section, but **only link if the relationship is concrete enough to name.** If you cannot say *how* article B helps understand article A, don't link it.
+
+Every link must include a relationship type:
+- **dependency** — this work depended on that system
+- **used-by** — this runbook/tool was used during that effort
+- **decision** — this article explains a decision made in that project
+- **same-initiative** — both belong to one workstream
+- **operational-support** — this monitoring/reference helps operate that system
+
+Format: `- [Article Title](path.md) — relationship: one-line explanation`
+
+Example:
+```markdown
+## Related
+- [Kubernetes Monitoring Stack](../onboarding/kubernetes-monitoring.md) — operational-support: Grafana dashboards used during CNI investigation
+```
+
+**Do NOT link** articles that are merely "adjacent" or "also engineering work." "Happening in parallel" and "might be relevant" are not relationships.
 
 ## Commands
 

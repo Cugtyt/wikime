@@ -33,16 +33,25 @@ Read each changed note file in full. You need full context to extract topics cor
 
 Use Glob to find `wiki/**/_index.md` files. Read `wiki/_index.md` if it exists — this is your map of existing topics and articles.
 
-## Step 4: Plan updates
+## Step 4: Filter — what is wiki material?
 
-For each piece of content in the notes, decide:
+Read the "What belongs in the wiki" section in `CLAUDE.md`. For each item in the changed notes, decide:
+
+- **Wiki material** (incidents, decisions, migrations, runbooks, real learnings) → proceed to planning
+- **Not wiki material** (routine tasks, meetings, one-off conversations, ephemeral updates) → skip, leave in notes only
+
+Be selective. Not every note becomes a wiki article. The wiki should feel like an engineering reference, not a log.
+
+## Step 5: Plan updates
+
+For the items that passed the filter:
 - **Existing article?** → Read it, merge new information, update `last_updated` and `sources` frontmatter.
 - **New article needed?** → Plan the topic folder and article filename.
-- **New cross-links?** → Plan markdown links between related articles.
+- **New cross-links?** → Plan links only if the relationship is concrete enough to name (see CLAUDE.md "Related — named relationships only").
 
 Group related content. One note entry might touch multiple articles. Multiple note entries might feed into one article.
 
-## Step 5: Confirm or proceed
+## Step 6: Confirm or proceed
 
 Review your plan from Step 4. If every decision is clear and unambiguous — obvious topic assignments, straightforward merges into existing articles — proceed directly to Step 6 without asking.
 
@@ -62,23 +71,24 @@ Compile plan:
 
 Wait for user input before proceeding. If the user gives feedback, adjust and re-present if needed.
 
-## Step 6: Write wiki updates
+## Step 7: Write wiki updates
 
 Follow the wiki article format and conventions defined in `CLAUDE.md`. Read it first if you haven't already.
 
 Create topic directories with `mkdir -p` before writing files.
 
 **Key rules:**
-- **Synthesize, don't copy.** Wiki articles should be well-written summaries, not copy-paste from notes.
+- **Outcome-first.** First paragraph states what happened, why it mattered, who it affected. See CLAUDE.md for examples.
 - **Merge, don't duplicate.** If a topic already has an article, update it rather than creating a new one.
-- **Preserve impact context.** When notes include who was affected, what improved, or why something matters, carry that into the wiki article prominently. Don't reduce "fixed MTU mismatch, unblocking 3 teams" to just "fixed MTU mismatch."
+- **Named relationships only.** Only add links to `## Related` if you can name the relationship type (dependency, used-by, decision, same-initiative, operational-support). See CLAUDE.md.
+- **Preserve impact context.** When notes include who was affected, what improved, or why something matters, carry that into the wiki article prominently.
 - Every topic folder needs an `_index.md`. Master `wiki/_index.md` must be kept up to date.
 
-## Step 7: Archive check
+## Step 8: Archive check
 
 After writing updates, check if any topics should be archived. Follow the Wiki Archiving rules in `CLAUDE.md`. If all articles in a topic have `last_updated` older than 3 months and no new notes reference them, suggest moving the topic to `wiki/archive/`. Ask the user before archiving — don't do it automatically.
 
-## Step 8: Update .wikime and commit
+## Step 9: Update .wikime and commit
 
 1. Write the current HEAD commit hash to `.wikime`
 2. Stage all changes: `git add wiki/ .wikime`
