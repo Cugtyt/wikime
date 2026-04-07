@@ -18,11 +18,9 @@ Available notes:
 
 ## Steps
 
-1. **Find yesterday's notes.** If today is Monday, "yesterday" means Friday. Find the note file that contains the most recent working day's section.
-
-2. **Find today's notes.** Check if today's date section exists in the current week's note file.
-
-3. **Read the relevant note files.**
+1. **Find yesterday's and today's notes.** Read the most recent 2 note files from the list above (the current week's file and possibly the previous week's). Scan for:
+   - **Yesterday:** If today is Monday, look for Friday's section (`## Friday YYYY-MM-DD`). Otherwise look for the previous weekday's section. This may be in the previous week's file.
+   - **Today:** Look for today's section (`## DayName YYYY-MM-DD`) in the current week's file.
 
 4. **Generate the standup** in this format:
 

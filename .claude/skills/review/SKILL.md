@@ -1,6 +1,6 @@
 ---
 name: review
-description: Generate a performance review draft from accumulated notes. Frames work as impact, not activity. Read-only — no files modified. Usage - /review [last 6 months | 2026 H1 | 2025-10 to 2026-03]
+description: Generate a performance review draft from accumulated notes. Frames work as impact, not activity. Can save to file if requested. Usage - /review [last 6 months | 2026 H1 | 2025-10 to 2026-03]
 argument-hint: [last 6 months | 2026 H1 | date range]
 allowed-tools: Read, Write, Glob, Grep
 ---
@@ -85,6 +85,6 @@ After the review, follow the Impact Context rules in `CLAUDE.md`. Flag significa
 
 ## Output
 
-Output to terminal only. Do not create or modify any files.
+Output to terminal. Do not save to file unless the user asks.
 
 After presenting, suggest: "Want me to save this draft to `notes/review-YYYY-HN.md`?"

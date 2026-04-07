@@ -1,6 +1,6 @@
 ---
 name: report
-description: Generate a weekly report from notes. Defaults to current week, accepts argument like "/report last week". Read-only — no files modified. Usage - /report [this week|last week|YYYY/MM-wN]
+description: Generate a weekly report from notes. Defaults to current week, accepts argument like "/report last week". Can save to file if requested. Usage - /report [this week|last week|YYYY/MM-wN]
 argument-hint: [this week | last week | YYYY/MM-wN]
 allowed-tools: Read, Write, Glob, Grep
 ---
@@ -57,6 +57,6 @@ If no argument given, default to "this week". If "last week", use the previous w
 
 5. **Impact gap check.** Follow the Impact Context rules in `CLAUDE.md`. Flag significant items missing the "so what."
 
-6. **Output to terminal only.** Do not create or modify any files.
+6. **Output to terminal.** Do not save to file unless the user asks.
 
-If the user wants to save it, suggest: "Want me to save this? I can write it to `notes/YYYY/MM-wN-report.md`."
+After presenting, suggest: "Want me to save this? I can write it to `notes/YYYY/MM-wN-report.md`."
