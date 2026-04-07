@@ -22,7 +22,7 @@ Available notes:
    - **Yesterday:** If today is Monday, look for Friday's section (`## Friday YYYY-MM-DD`). Otherwise look for the previous weekday's section. This may be in the previous week's file.
    - **Today:** Look for today's section (`## DayName YYYY-MM-DD`) in the current week's file.
 
-4. **Generate the standup** in this format:
+2. **Generate the standup** in this format:
 
 ```
 ## Yesterday
@@ -38,6 +38,6 @@ Available notes:
 - If none found, say "None"
 ```
 
-5. **Output to terminal only.** Do not create or modify any files.
+3. **Output to terminal only.** Do not create or modify any files.
 
 Keep it concise — bullet points, no prose.

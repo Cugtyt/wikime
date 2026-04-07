@@ -61,19 +61,19 @@ Take the user's raw input and format it into clean, consistent bullet points:
 
 Append the formatted bullets under today's section.
 
-## Step 5: Impact check
+## Step 5: Impact check (analysis only — don't present yet)
 
-For each NEW bullet just added (not previous days' items), classify it per `CLAUDE.md` Impact Context rules:
+For each NEW bullet just added (not previous days' items), classify it per `CLAUDE.md` Impact Context rules. Do this silently — you'll present results in Step 6.
 
 **Routine** (attended standup, reviewed PR, read docs) → skip, no impact needed.
 
 **Significant** → check if the wiki has a related topic:
 
 1. Read `wiki/_index.md`. Use Grep to quickly scan wiki article titles for related terms.
-2. Based on what you find:
+2. Note which situation applies for each significant bullet:
 
-| Situation | Action |
-|-----------|--------|
+| Situation | What to present in Step 6 |
+|-----------|--------------------------|
 | Wiki has a related topic with impact context | Propose: "This connects to [Topic] — [existing impact summary]. Sound right?" |
 | Wiki has a related topic, no impact context | Ask: "This connects to [Topic] but we don't have the impact story. What's the goal? Who benefits?" |
 | No related wiki topic | Ask: "This looks significant. What's the impact? (skip if not important)" |
@@ -82,16 +82,20 @@ For each NEW bullet just added (not previous days' items), classify it per `CLAU
 
 **Never re-ask** about items from previous days. Only check the new bullets from this invocation.
 
-## Step 6: Show, confirm, and commit
+## Step 6: Present everything, confirm, and commit
 
-Show the user what was appended:
+Show the user what was appended AND any impact questions from Step 5, all in one message:
 ```
 Added to notes/2026/03-w5.md under ## Thursday 2026-04-03:
-- First bullet point
-- Second bullet point
+- Fixed Flannel MTU across staging
+- Attended team standup
+
+💡 Impact check:
+- "Fixed Flannel MTU across staging" connects to Cluster Stability — unblocking 3 teams. Sound right?
+(reply with context to add, adjust, or "skip")
 ```
 
-If impact questions were raised in Step 5, present them now. If the user provides impact context, append it to the relevant bullet with a ` — ` separator (e.g. `- Fixed Flannel MTU — unblocked 3 teams dependent on staging cluster`). If they say "skip", proceed as-is.
+If the user provides impact context, append it to the relevant bullet with a ` — ` separator (e.g. `- Fixed Flannel MTU — unblocked 3 teams dependent on staging cluster`). If they say "skip", proceed as-is.
 
 Then ask to commit:
 ```
