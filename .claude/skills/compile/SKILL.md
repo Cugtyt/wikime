@@ -53,7 +53,7 @@ Group related content. One note entry might touch multiple articles. Multiple no
 
 ## Step 6: Confirm or proceed
 
-Review your plan from Step 4. If every decision is clear and unambiguous — obvious topic assignments, straightforward merges into existing articles — proceed directly to Step 6 without asking.
+Review your plan from Step 5. If every decision is clear and unambiguous — obvious topic assignments, straightforward merges into existing articles — proceed directly to Step 7 without asking.
 
 **But if any decision requires judgment, stop and ask the user.** Examples:
 - A note could belong to multiple topics and it's not obvious which

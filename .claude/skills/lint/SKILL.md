@@ -39,7 +39,7 @@ Compare each article's `last_updated` frontmatter date with the modification dat
 **Flag for review:** List stale articles and suggest running `/compile` to update them.
 
 ### 4. Missing Coverage
-Scan all notes for recurring topics, tools, or concepts that appear 3+ times but have no wiki article. Use Grep to find frequently mentioned terms across notes.
+Scan all notes for recurring topics, tools, or concepts that appear 3+ times but have no wiki article. Use Grep to find frequently mentioned terms across notes. Only flag topics that would qualify as wiki material per CLAUDE.md selectivity criteria — do not flag routine items (meetings, PR reviews, standups) as missing coverage.
 
 **Flag for review:** List potential new articles with the note references.
 
