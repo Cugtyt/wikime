@@ -122,12 +122,14 @@ Your notes accumulate, the wiki grows, and your knowledge compounds.
 notes/                    ← you write here (via /note or manually)
   2026/
     04-w1.md              ← weekly note
-wiki/                     ← LLM maintains this
+wiki/                     ← LLM compiles topic articles here
   _index.md               ← master index
   kubernetes/
     cni-debugging.md
   python/
     async-patterns.md
+reports/                  ← saved weekly reports (generated)
+reviews/                  ← saved performance reviews (generated)
 .wikime                   ← last compiled commit hash
 .claude/skills/           ← the eight commands
 ```

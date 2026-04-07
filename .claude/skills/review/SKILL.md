@@ -2,7 +2,7 @@
 name: review
 description: Generate a performance review draft from accumulated notes. Frames work as impact, not activity. Can save to file if requested. Usage - /review [last 6 months | 2026 H1 | 2025-10 to 2026-03]
 argument-hint: [last 6 months | 2026 H1 | date range]
-allowed-tools: Read, Write, Glob, Grep
+allowed-tools: Read, Write, Glob, Grep, Bash(mkdir*)
 ---
 
 # Performance Review
@@ -30,7 +30,7 @@ If no argument given, default to "last 6 months." Parse the time range to determ
 
 2. **Read `wiki/_index.md`** and relevant wiki articles for synthesized context.
 
-3. **Read any weekly reports** (`notes/YYYY/MM-wN-report.md`) in the range if they exist.
+3. **Read any saved weekly reports** from `reports/` in the range if they exist.
 
 4. **Generate the review** in the format below.
 
@@ -87,4 +87,4 @@ After the review, follow the Impact Context rules in `CLAUDE.md`. Flag significa
 
 Output to terminal. Do not save to file unless the user asks.
 
-After presenting, suggest: "Want me to save this draft to `notes/review-YYYY-HN.md`?"
+After presenting, suggest: "Want me to save this draft to `reviews/YYYY-HN.md`?"

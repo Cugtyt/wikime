@@ -2,7 +2,7 @@
 name: report
 description: Generate a weekly report from notes. Defaults to current week, accepts argument like "/report last week". Can save to file if requested. Usage - /report [this week|last week|YYYY/MM-wN]
 argument-hint: [this week | last week | YYYY/MM-wN]
-allowed-tools: Read, Write, Glob, Grep
+allowed-tools: Read, Write, Glob, Grep, Bash(mkdir*)
 ---
 
 # Weekly Report
@@ -59,4 +59,4 @@ If no argument given, default to "this week". If "last week", use the previous w
 
 6. **Output to terminal.** Do not save to file unless the user asks.
 
-After presenting, suggest: "Want me to save this? I can write it to `notes/YYYY/MM-wN-report.md`."
+After presenting, suggest: "Want me to save this? I can write it to `reports/YYYY-MM-wN.md`."

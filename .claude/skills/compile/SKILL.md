@@ -18,10 +18,10 @@ Last compiled commit (empty means first compile):
 Current HEAD:
 !`git rev-parse HEAD`
 
-All notes files:
+Weekly note files (the only input — ignore any other files in notes/):
 !`find notes/ -name "*.md" 2>/dev/null | sort`
 
-**If FIRST_COMPILE:** process ALL notes files listed above.
+**If FIRST_COMPILE:** process ALL weekly note files listed above.
 
 **Otherwise:** use the Bash tool to run `git diff <last-hash>..HEAD --name-only -- notes/` (substituting the hash from .wikime) to find which notes changed. If no notes changed, respond "No notes changes to compile." and stop.
 
