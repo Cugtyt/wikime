@@ -18,9 +18,15 @@ Today:
 
 Use the Bash tool to find the Monday of the current week and derive the file path:
 1. Find the most recent Monday (including today if it's Monday)
-2. Get its year, month (zero-padded), and week-of-month (day 1-7 = w1, 8-14 = w2, 15-21 = w3, 22-28 = w4, 29-31 = w5)
+2. Get its month (zero-padded) and ISO week number (`date +%V` on that Monday)
 
-File path: `notes/YYYY/MM-wW.md`
+File path: `notes/YYYY/MM-wWW.md` (MM = month of Monday, WW = ISO week number zero-padded)
+
+Examples:
+- Monday is 2026-01-05 (week 2) → `notes/2026/01-w02.md`
+- Monday is 2026-03-30 (week 14) → `notes/2026/03-w14.md`
+- Monday is 2026-04-06 (week 15) → `notes/2026/04-w15.md`
+- Monday is 2026-12-28 (week 53) → `notes/2026/12-w53.md`
 
 ## Step 2: Read or create the file
 

@@ -121,7 +121,7 @@ Your notes accumulate, the wiki grows, and your knowledge compounds.
 ```
 notes/                    ← you write here (via /note or manually)
   2026/
-    04-w1.md              ← weekly note
+    04-w15.md             ← weekly note (April, ISO week 15)
 wiki/                     ← LLM compiles topic articles here
   _index.md               ← master index
   kubernetes/

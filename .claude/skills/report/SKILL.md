@@ -59,4 +59,4 @@ If no argument given, default to "this week". If "last week", use the previous w
 
 6. **Output to terminal.** Do not save to file unless the user asks.
 
-After presenting, suggest: "Want me to save this? I can write it to `reports/YYYY-MM-wN.md`."
+After presenting, suggest: "Want me to save this? I can write it to `reports/YYYY-MM-wWW.md`."

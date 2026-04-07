@@ -4,7 +4,7 @@ LLM-maintained personal knowledge base. Weekly work notes in `notes/` are compil
 
 ## Structure
 
-- `notes/YYYY/MM-wN.md` — weekly notes (human-written, the only place humans write)
+- `notes/YYYY/MM-wWW.md` — weekly notes (human-written, the only place humans write)
 - `wiki/` — topical articles (LLM-maintained, never edit manually)
 - `wiki/_index.md` — master index of all topics
 - `wiki/<topic>/_index.md` — per-topic index
@@ -12,7 +12,7 @@ LLM-maintained personal knowledge base. Weekly work notes in `notes/` are compil
 - `reviews/` — generated performance reviews (LLM-generated, saved on request)
 - `.wikime` — last compiled commit hash
 
-**Separation rule:** `notes/` contains only human-written weekly note files (`MM-wN.md`). All generated output goes to `wiki/`, `reports/`, or `reviews/`. Skills that read notes must only process files in `notes/`.
+**Separation rule:** `notes/` contains only human-written weekly note files (`MM-wWW.md`). All generated output goes to `wiki/`, `reports/`, or `reviews/`. Skills that read notes must only process files in `notes/`.
 
 ## What belongs in the wiki
 
