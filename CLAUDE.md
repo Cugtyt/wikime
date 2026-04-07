@@ -47,12 +47,14 @@ The primary goal of wikime is to capture not just what happened, but why it matt
 
 **Routine work** (attended standup, reviewed PR, read docs) does not need impact context.
 
-**All commands that surface notes should flag impact gaps.** When a note item looks significant but lacks the "so what," nudge the user to add context. Examples:
+**The wiki is the impact memory.** Once a topic has impact context in the wiki (e.g. "cluster stability effort, goal: eliminate pod evictions, unblocking 3 teams"), new notes about that topic can inherit it automatically. Impact only needs to be described once per project/initiative.
 
-- `/note` — after formatting bullets, scan the week's notes and flag missing impact before commit
-- `/report` — include a "missing impact context" section for significant items
+**How each command handles impact:**
+
+- `/note` — for each new significant bullet, check if the wiki has a related topic. If yes, propose the connection and inherited impact. If no, ask the user. Never re-ask about items from previous days. Only check new bullets.
+- `/compile` — when synthesizing wiki articles, preserve and highlight impact context from notes prominently
+- `/report` — flag significant items still missing impact context at end of week
 - `/review` — flag gaps so the user can enrich before submitting their review
-- `/compile` — when synthesizing wiki articles, preserve and highlight impact context from notes
 
 This is not optional polish — it's the core value of the system. Notes with impact context produce strong weekly reports and performance reviews. Notes without it produce generic summaries.
 

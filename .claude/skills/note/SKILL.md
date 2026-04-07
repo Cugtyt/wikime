@@ -2,7 +2,7 @@
 name: note
 description: Quick-add a note to the current week's file. Auto-detects week, creates file if needed, appends under today's date section, formats into clean bullets. Usage - /note <what happened>
 argument-hint: <what happened today>
-allowed-tools: Read, Write, Edit, Glob, Bash(git add*), Bash(git commit*), Bash(mkdir*), Bash(date*)
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash(git add*), Bash(git commit*), Bash(mkdir*), Bash(date*)
 ---
 
 # Add a Note
@@ -63,9 +63,26 @@ Append the formatted bullets under today's section.
 
 ## Step 5: Impact check
 
-Review the entire week's note file for impact gaps, following the Impact Context rules in `CLAUDE.md`. Read `CLAUDE.md` first if you haven't already.
+For each NEW bullet just added (not previous days' items), classify it per `CLAUDE.md` Impact Context rules:
 
-## Step 6: Show, nudge, and ask to commit
+**Routine** (attended standup, reviewed PR, read docs) → skip, no impact needed.
+
+**Significant** → check if the wiki has a related topic:
+
+1. Read `wiki/_index.md`. Use Grep to quickly scan wiki article titles for related terms.
+2. Based on what you find:
+
+| Situation | Action |
+|-----------|--------|
+| Wiki has a related topic with impact context | Propose: "This connects to [Topic] — [existing impact summary]. Sound right?" |
+| Wiki has a related topic, no impact context | Ask: "This connects to [Topic] but we don't have the impact story. What's the goal? Who benefits?" |
+| No related wiki topic | Ask: "This looks significant. What's the impact? (skip if not important)" |
+
+**Keep it fast:** read `wiki/_index.md` and at most 1-2 relevant articles. Don't scan the whole wiki.
+
+**Never re-ask** about items from previous days. Only check the new bullets from this invocation.
+
+## Step 6: Show, confirm, and commit
 
 Show the user what was appended:
 ```
@@ -74,15 +91,7 @@ Added to notes/2026/03-w5.md under ## Thursday 2026-04-03:
 - Second bullet point
 ```
 
-If any items this week (new or from previous days) are missing impact context, nudge:
-```
-💡 A few items this week could use impact context (helps with /review later):
-- [Mon] Fixed the Flannel MTU issue across staging — who was affected? what was the impact?
-- [Thu] Set up HPA for the auth service — why? what does this improve?
-(reply with context to add, or "skip")
-```
-
-If the user provides context, update those bullets in the note file to include it. If they say "skip", proceed.
+If impact questions were raised in Step 5, present them now. If the user provides impact context, append it to the relevant bullet with a ` — ` separator (e.g. `- Fixed Flannel MTU — unblocked 3 teams dependent on staging cluster`). If they say "skip", proceed as-is.
 
 Then ask to commit:
 ```
