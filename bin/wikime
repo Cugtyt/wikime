@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+CACHE_FILE="$REPO_ROOT/.wikime-cache"
+
+usage() {
+    echo "Usage:"
+    echo "  wikime add <text>       Quick-capture a note (saved to cache, processed by /note)"
+    echo "  wikime search <term>    Search across notes, wiki, reports, reviews"
+    exit 1
+}
+
+cmd_add() {
+    if [ -z "${1:-}" ]; then
+        echo "Error: provide text to add"
+        echo "  wikime add \"fixed the auth bug, unblocked mobile team\""
+        exit 1
+    fi
+    local timestamp
+    timestamp="$(date +"%Y-%m-%d %H:%M")"
+    echo "[$timestamp] $*" >> "$CACHE_FILE"
+    echo "Cached: $*"
+    echo "Run /note in Claude Code to process and commit."
+}
+
+cmd_search() {
+    if [ -z "${1:-}" ]; then
+        echo "Error: provide a search term"
+        echo "  wikime search flannel"
+        exit 1
+    fi
+    local dirs=()
+    for d in notes wiki reports reviews; do
+        [ -d "$REPO_ROOT/$d" ] && dirs+=("$REPO_ROOT/$d")
+    done
+    if [ ${#dirs[@]} -eq 0 ]; then
+        echo "No content directories found."
+        exit 1
+    fi
+    grep -rn --include="*.md" -i "$*" "${dirs[@]}" || echo "No matches found."
+}
+
+case "${1:-}" in
+    add)    shift; cmd_add "$@" ;;
+    search) shift; cmd_search "$@" ;;
+    *)      usage ;;
+esac

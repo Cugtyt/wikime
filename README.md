@@ -49,13 +49,24 @@ When you write a note, the LLM checks the wiki for related topics. If it finds o
 
 You describe the impact once. The wiki remembers it. When you generate a performance review 6 months later, the impact is already there — no archaeology required.
 
+## CLI — quick capture and search without Claude Code
+
+```bash
+# Add bin/ to your PATH, or use the full path
+wikime add "sarah wants to delay migration to next sprint"
+wikime add "jake found memory leak in auth service"
+wikime search "flannel"
+```
+
+`wikime add` saves to a cache file. Next time you run `/note` in Claude Code, it picks up cached entries, formats them, checks impact, and commits. `wikime search` greps across all content instantly.
+
 ## Commands
 
 **Capture**
 
 | Command | What it does |
 |---------|-------------|
-| `/note <text>` | Append to this week's note file. Formats into bullets, checks impact against wiki, asks to commit. |
+| `/note <text>` | Append to this week's note file. Formats into bullets, checks impact against wiki, processes cache, asks to commit. |
 
 **Organize**
 

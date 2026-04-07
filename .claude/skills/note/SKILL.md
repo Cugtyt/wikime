@@ -2,7 +2,7 @@
 name: note
 description: Quick-add a note to the current week's file. Auto-detects week, creates file if needed, appends under today's date section, formats into clean bullets. Usage - /note <what happened>
 argument-hint: <what happened today>
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash(git add*), Bash(git commit*), Bash(mkdir*), Bash(date*)
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash(git add*), Bash(git commit*), Bash(mkdir*), Bash(date*), Bash(rm .wikime-cache*)
 ---
 
 # Add a Note
@@ -55,9 +55,17 @@ Look for a section matching today: `## DayName YYYY-MM-DD` (e.g. `## Thursday 20
 
 ```
 
-## Step 4: Format and append
+## Step 4: Check cache and combine input
 
-Take the user's raw input and format it into clean, consistent bullet points:
+Read `.wikime-cache` if it exists. This file contains quick-capture entries from the `wikime add` CLI, one per line in format `[YYYY-MM-DD HH:MM] text`.
+
+Combine cache entries with the user's `$ARGUMENTS` input. Group cache entries by their timestamp date — entries from today go under today's section, entries from previous days go under their respective day sections.
+
+After processing, delete `.wikime-cache` using Bash: `rm .wikime-cache`
+
+## Step 5: Format and append
+
+Take all input (cache + user's text) and format into clean, consistent bullet points:
 - Split into separate bullet points by topic/event
 - Start each bullet with `- `
 - Format code, tool names, and commands with backticks
@@ -67,7 +75,7 @@ Take the user's raw input and format it into clean, consistent bullet points:
 
 Append the formatted bullets under today's section.
 
-## Step 5: Impact check (analysis only — don't present yet)
+## Step 6: Impact check (analysis only — don't present yet)
 
 For each NEW bullet just added (not previous days' items), classify it per `CLAUDE.md` Impact Context rules. Do this silently — you'll present results in Step 6.
 
@@ -78,7 +86,7 @@ For each NEW bullet just added (not previous days' items), classify it per `CLAU
 1. Read `wiki/_index.md`. Use Grep to quickly scan wiki article titles for related terms.
 2. Note which situation applies for each significant bullet:
 
-| Situation | What to present in Step 6 |
+| Situation | What to present in Step 7 |
 |-----------|--------------------------|
 | Wiki has a related topic with impact context | Propose: "This connects to [Topic] — [existing impact summary]. Sound right?" |
 | Wiki has a related topic, no impact context | Ask: "This connects to [Topic] but we don't have the impact story. What's the goal? Who benefits?" |
@@ -88,9 +96,9 @@ For each NEW bullet just added (not previous days' items), classify it per `CLAU
 
 **Never re-ask** about items from previous days. Only check the new bullets from this invocation.
 
-## Step 6: Present everything, confirm, and commit
+## Step 7: Present everything, confirm, and commit
 
-Show the user what was appended AND any impact questions from Step 5, all in one message:
+Show the user what was appended AND any impact questions from Step 6, all in one message:
 ```
 Added to notes/2026/03-w5.md under ## Thursday 2026-04-03:
 - Fixed Flannel MTU across staging
