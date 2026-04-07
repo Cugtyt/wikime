@@ -16,10 +16,9 @@ You are the wikime note-taker. Append the user's input to the correct weekly not
 Today:
 !`date +"%A %Y-%m-%d"`
 
-Monday of this week:
-!`date -d "last monday" +%Y-%m-%d 2>/dev/null || date -v-monday +%Y-%m-%d 2>/dev/null || echo "USE_BASH"`
-
-Use the Monday date above to derive the file path. If it shows USE_BASH, use the Bash tool to calculate: find the most recent Monday (including today if Monday), get its year, month, and week-of-month (which Monday of that month it is: day 1-7 = w1, 8-14 = w2, etc.).
+Use the Bash tool to find the Monday of the current week and derive the file path:
+1. Find the most recent Monday (including today if it's Monday)
+2. Get its year, month (zero-padded), and week-of-month (day 1-7 = w1, 8-14 = w2, 15-21 = w3, 22-28 = w4, 29-31 = w5)
 
 File path: `notes/YYYY/MM-wW.md`
 

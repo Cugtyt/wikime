@@ -10,15 +10,18 @@ You are the wikime linter. Scan the wiki for quality issues and fix what you can
 
 ## Available data
 
-Wiki articles:
-!`find wiki/ -name "*.md" 2>/dev/null | sort || echo "No wiki found — run /compile first"`
+Active wiki articles:
+!`find wiki/ -path wiki/archive -prune -o -name "*.md" -print 2>/dev/null | sort || echo "No wiki found — run /compile first"`
+
+Archived wiki articles:
+!`find wiki/archive/ -name "*.md" 2>/dev/null | sort || echo "No archive"`
 
 Notes files:
 !`find notes/ -name "*.md" 2>/dev/null | sort || echo "No notes found"`
 
 ## Checks to perform
 
-Read all wiki markdown files, then check for:
+Read all wiki markdown files, then check for the following. **Important:** for archived content (`wiki/archive/`), only run checks 1 (Broken Links) and 6 (Index Consistency). Skip checks 2-5 — archived content is intentionally frozen. See CLAUDE.md for archiving rules.
 
 ### 1. Broken Links
 Scan all articles for markdown links `[text](path.md)`. For each relative link, verify the target file exists (resolving the path relative to the linking file). Report any broken links.

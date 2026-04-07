@@ -81,14 +81,13 @@ wiki/                     ← LLM maintains this
 
 /report
 > Accomplishments: resolved k8s pod eviction, postgres migration approved...
-```
 
 /review last 6 months
 > ## Impact Summary
 > - Resolved cluster-wide networking instability, unblocking 3 teams
 > - Led PostgreSQL migration, completed on schedule
 > ...
-> ## ⚠️ Items Missing Impact Context
+> ## Items Missing Impact Context
 > - "set up HPA for auth service" — what improved?
 ```
 

@@ -71,6 +71,7 @@ Create topic directories with `mkdir -p` before writing files.
 **Key rules:**
 - **Synthesize, don't copy.** Wiki articles should be well-written summaries, not copy-paste from notes.
 - **Merge, don't duplicate.** If a topic already has an article, update it rather than creating a new one.
+- **Preserve impact context.** When notes include who was affected, what improved, or why something matters, carry that into the wiki article prominently. Don't reduce "fixed MTU mismatch, unblocking 3 teams" to just "fixed MTU mismatch."
 - Every topic folder needs an `_index.md`. Master `wiki/_index.md` must be kept up to date.
 
 ## Step 7: Archive check
