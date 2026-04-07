@@ -73,7 +73,11 @@ Create topic directories with `mkdir -p` before writing files.
 - **Merge, don't duplicate.** If a topic already has an article, update it rather than creating a new one.
 - Every topic folder needs an `_index.md`. Master `wiki/_index.md` must be kept up to date.
 
-## Step 7: Update .wikime and commit
+## Step 7: Archive check
+
+After writing updates, check if any topics should be archived. Follow the Wiki Archiving rules in `CLAUDE.md`. If all articles in a topic have `last_updated` older than 3 months and no new notes reference them, suggest moving the topic to `wiki/archive/`. Ask the user before archiving — don't do it automatically.
+
+## Step 8: Update .wikime and commit
 
 1. Write the current HEAD commit hash to `.wikime`
 2. Stage all changes: `git add wiki/ .wikime`

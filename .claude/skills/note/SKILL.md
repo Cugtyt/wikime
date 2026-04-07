@@ -16,10 +16,10 @@ You are the wikime note-taker. Append the user's input to the correct weekly not
 Today:
 !`date +"%A %Y-%m-%d"`
 
-Monday of this week (year, month, day, week-of-month):
-!`python3 -c "from datetime import date,timedelta;t=date.today();m=t-timedelta(days=t.weekday());w=(m.day-1)//7+1;print(f'{m.year} {m.month:02d} {m.day:02d} {w}')" 2>/dev/null || python -c "from datetime import date,timedelta;t=date.today();m=t-timedelta(days=t.weekday());w=(m.day-1)//7+1;print(f'{m.year} {m.month:02d} {m.day:02d} {w}')"` 
+Monday of this week:
+!`date -d "last monday" +%Y-%m-%d 2>/dev/null || date -v-monday +%Y-%m-%d 2>/dev/null || echo "USE_BASH"`
 
-Read the output above as: `YYYY MM DD W`
+Use the Monday date above to derive the file path. If it shows USE_BASH, use the Bash tool to calculate: find the most recent Monday (including today if Monday), get its year, month, and week-of-month (which Monday of that month it is: day 1-7 = w1, 8-14 = w2, etc.).
 
 File path: `notes/YYYY/MM-wW.md`
 

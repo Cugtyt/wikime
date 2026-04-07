@@ -42,5 +42,8 @@ Current date for temporal reference:
 Available wiki topics:
 !`ls wiki/ 2>/dev/null || echo "Wiki is empty — run /compile first"`
 
+Archived wiki topics:
+!`ls wiki/archive/ 2>/dev/null || echo "No archive"`
+
 Available notes:
 !`find notes/ -name "*.md" 2>/dev/null | sort || echo "No notes found"`

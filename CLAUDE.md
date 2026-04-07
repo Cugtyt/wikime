@@ -56,6 +56,17 @@ The primary goal of wikime is to capture not just what happened, but why it matt
 
 This is not optional polish — it's the core value of the system. Notes with impact context produce strong weekly reports and performance reviews. Notes without it produce generic summaries.
 
+## Wiki Archiving
+
+When the wiki grows large, topics that haven't been updated in a long time should be moved to `wiki/archive/`. This keeps the active wiki focused and fast to navigate.
+
+- `wiki/archive/<topic>/` — same structure as active topics, just under archive
+- `wiki/archive/_index.md` — index of all archived topics
+- `wiki/_index.md` — only lists active topics, with a link to the archive index
+- Archived articles are still searchable by `/query` and linkable from active articles
+- `/compile` should suggest archiving when a topic's articles are all stale (no updates in 3+ months)
+- `/lint` checks archive for consistency too
+
 ## Conventions
 
 - All content is markdown
