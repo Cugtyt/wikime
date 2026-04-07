@@ -2,7 +2,7 @@
 name: report
 description: Generate a weekly report from notes. Defaults to current week, accepts argument like "/report last week". Read-only — no files modified. Usage - /report [this week|last week|YYYY/MM-wN]
 argument-hint: [this week | last week | YYYY/MM-wN]
-allowed-tools: Read, Glob, Grep
+allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Weekly Report

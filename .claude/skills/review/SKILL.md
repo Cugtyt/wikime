@@ -2,7 +2,7 @@
 name: review
 description: Generate a performance review draft from accumulated notes. Frames work as impact, not activity. Read-only — no files modified. Usage - /review [last 6 months | 2026 H1 | 2025-10 to 2026-03]
 argument-hint: [last 6 months | 2026 H1 | date range]
-allowed-tools: Read, Glob, Grep
+allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Performance Review
@@ -81,7 +81,7 @@ For each major project/workstream:
 
 ## Gap Analysis
 
-After the review, follow the Impact Context rules in `CLAUDE.md`. Flag significant items missing the "so what" so the user can enrich their notes before submitting.
+After the review, follow the Impact Context rules in `CLAUDE.md`. Flag significant items missing the "so what" so the user can enrich their notes before submitting. Suggest using `/note` to add the missing context to the relevant week's file.
 
 ## Output
 
