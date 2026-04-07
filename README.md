@@ -22,6 +22,9 @@ Raw weekly notes in `notes/` are the input. The LLM reads your notes, extracts t
 | `/compile` | Git diff since last compile, update wiki articles incrementally. Asks for confirmation only when decisions are ambiguous. |
 | `/query <question>` | Ask anything. Routes to wiki for topics, notes for dates, both for mixed queries. |
 | `/lint` | Health check: broken links, orphan articles, stale content, missing coverage, duplicates. Auto-fixes what it can. |
+| `/standup` | Generate yesterday/today/blockers from recent notes. |
+| `/todos` | Scan notes for open action items and infer completion status. |
+| `/report [week]` | Generate weekly report: accomplishments, decisions, blockers, next week. |
 
 ## Repo structure
 
@@ -39,7 +42,7 @@ wiki/                     ← LLM maintains this
     _index.md
     async-patterns.md
 .wikime                   ← last compiled commit hash
-.claude/skills/           ← the four commands above
+.claude/skills/           ← the seven commands above
 ```
 
 ## Quick start
@@ -65,6 +68,18 @@ wiki/                     ← LLM maintains this
 
 /lint
 > All clear. 0 issues found.
+
+/standup
+> Yesterday: debugged pod eviction, confirmed postgres migration
+> Today: No plan logged yet — use /note to add one.
+> Blockers: need to write rollback plan
+
+/todos
+> Open: write rollback plan (Apr 3), follow up with Sarah on timeline (Apr 3)
+> Done: fix Flannel MTU (Apr 1 → resolved Apr 2)
+
+/report
+> Accomplishments: resolved k8s pod eviction, postgres migration approved...
 ```
 
 Your notes accumulate, the wiki grows, and your knowledge compounds.

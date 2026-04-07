@@ -34,6 +34,9 @@ last_updated: YYYY-MM-DD
 - `/compile` — compile notes diff into wiki
 - `/query <question>` — ask questions against the knowledge base
 - `/lint` — health check the wiki
+- `/standup` — generate yesterday/today/blockers from recent notes
+- `/todos` — scan notes for open action items
+- `/report [this week|last week]` — generate weekly report
 
 ## Conventions
 
