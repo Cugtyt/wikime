@@ -5,7 +5,7 @@ LLM-maintained personal knowledge base. Weekly work notes in `notes/` are compil
 ## Structure
 
 - `notes/YYYY/MM-wWW.md` — weekly notes (human-written, the only place humans write)
-- `wiki/` — topical articles (LLM-maintained, never edit manually)
+- `wiki/` — topical articles (LLM-maintained, revise by asking the agent directly in conversation)
 - `wiki/_index.md` — master index of all topics
 - `wiki/<topic>/_index.md` — per-topic index
 - `reports/` — generated weekly reports (LLM-generated, saved on request)
