@@ -130,4 +130,32 @@ When the wiki grows large, topics that haven't been updated in a long time shoul
 - Standard markdown relative links for cross-references (no wikilinks)
 - Topic folders are lowercase kebab-case
 - Article filenames are lowercase kebab-case
-- _index.md files list all articles in their directory with one-line summaries
+- `_index.md` files list all articles in their directory with one-line summaries
+- For initiative topics (migrations, projects with timelines/people/goals), `_index.md` includes a status summary — see below
+
+### Topic _index.md format
+
+**Knowledge topics** (learnings, tools, techniques) — article list only:
+```markdown
+# Python
+
+Async patterns, type hints, and other Python techniques.
+
+## Articles
+- [Async Patterns](async-patterns.md) — asyncio.TaskGroup, Semaphore for rate limiting
+```
+
+**Initiative topics** (projects with timelines, decisions, people) — status summary + article list:
+```markdown
+# PostgreSQL Migration
+
+**Status:** In progress — targeting end of April
+**Goal:** Migrate auth service from Redis to PostgreSQL for compliance
+**Key people:** Sarah (lead), Jake (support)
+**Next:** Write rollback plan, finalize session table schema
+
+## Articles
+- [Auth Service Migration](auth-service-migration.md) — schema and timeline details
+```
+
+`/compile` detects initiative topics from the notes (look for timelines, decisions, people, milestones) and maintains the status summary. Update the status fields each compile based on the latest notes.

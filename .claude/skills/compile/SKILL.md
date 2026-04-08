@@ -83,6 +83,7 @@ Create topic directories with `mkdir -p` before writing files.
 - **Named relationships only.** Only add links to `## Related` if you can name the relationship type (dependency, used-by, decision, same-initiative, operational-support). See CLAUDE.md.
 - **Preserve impact context.** When notes include who was affected, what improved, or why something matters, carry that into the wiki article prominently.
 - Every topic folder needs an `_index.md`. Master `wiki/_index.md` must be kept up to date.
+- **Initiative status.** For topics that represent ongoing initiatives (timelines, decisions, people, milestones in the notes), maintain a status summary in `_index.md` — see CLAUDE.md for format. Update status fields each compile based on the latest notes.
 
 After writing, show the user what was created/changed before committing:
 - **New articles:** show the full content
