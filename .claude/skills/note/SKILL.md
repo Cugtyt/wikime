@@ -34,9 +34,9 @@ Check if the file exists using Read.
 
 **If it doesn't exist:**
 - Create the directory with `mkdir -p notes/YYYY/`
-- Create the file with a header:
+- Create the file with a header (WW = ISO week number):
 ```markdown
-# Week N - Month YYYY
+# Week WW - Month YYYY
 
 ```
 
@@ -59,9 +59,11 @@ Look for a section matching today: `## DayName YYYY-MM-DD` (e.g. `## Thursday 20
 
 Read `.wikime-cache` if it exists. This file contains quick-capture entries from the `wikime add` CLI, one per line in format `[YYYY-MM-DD HH:MM] text`.
 
-Combine cache entries with the user's `$ARGUMENTS` input. Group cache entries by their timestamp date — entries from today go under today's section, entries from previous days go under their respective day sections.
+Combine cache entries with the user's `$ARGUMENTS` input. Group everything by date:
+- Cache entries from today + user's `$ARGUMENTS` → today's section
+- Cache entries from previous days → their respective day sections (create the `## DayName YYYY-MM-DD` section if it doesn't exist, same format as Step 3)
 
-After processing, delete `.wikime-cache` using Bash: `rm .wikime-cache`
+Delete `.wikime-cache` using Bash: `rm .wikime-cache`
 
 ## Step 5: Format and append
 
@@ -77,7 +79,7 @@ Append the formatted bullets under today's section.
 
 ## Step 6: Impact check (analysis only — don't present yet)
 
-For each NEW bullet just added (not previous days' items), classify it per `CLAUDE.md` Impact Context rules. Do this silently — you'll present results in Step 6.
+For each NEW bullet just added (not previous days' items), classify it per `CLAUDE.md` Impact Context rules. Do this silently — you'll present results in Step 7.
 
 **Routine** (attended standup, reviewed PR, read docs) → skip, no impact needed.
 

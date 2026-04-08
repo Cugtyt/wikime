@@ -40,7 +40,7 @@ All wiki articles must use this format:
 title: Article Title
 topic: topic-folder-name
 sources:
-  - notes/2026/04-w1.md
+  - notes/2026/04-w15.md
 last_updated: YYYY-MM-DD
 ---
 ```

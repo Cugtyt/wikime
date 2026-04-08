@@ -127,6 +127,28 @@ Every 6 months:
 
 Your notes accumulate, the wiki grows, and your knowledge compounds.
 
+## Your first month
+
+**Day 1 — start capturing**
+
+Clone the repo, open in Claude Code. Use `/note` for your first entry. Run `/compile` to see the wiki come alive. That's it — you're set up.
+
+**Days 2-5 — build the habit**
+
+Use `wikime add` from any terminal when you're not in Claude Code (meetings, Slack, browsing). At transitions (lunch, end of day), open Claude Code and run `/note` — it picks up your cached items, formats them, and asks about impact. Run `/standup` each morning before your team's standup.
+
+**Week 1 Friday — first outputs**
+
+Run `/compile` to update the wiki, then `/report` for your weekly summary. You'll immediately have a structured report you can send to your manager or paste into a sprint review. Run `/lint` to check wiki health.
+
+**Weeks 2-4 — the wiki becomes useful**
+
+By now you have 10-15 wiki articles. `/query` starts paying off — "what did I learn about X?" or "when did we decide Y?" returns real answers. `/todos` catches action items you forgot. Initiative topics show status summaries.
+
+**Month 3+ — the big payoff**
+
+Run `/review last 6 months`. Your performance review draft writes itself — outcomes, not activities. Impact context you captured months ago is already there. This is the moment the daily habit pays off.
+
 ## Repo structure
 
 ```
