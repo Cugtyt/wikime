@@ -11,6 +11,10 @@ You are the wikime note-taker. Append the user's input to the correct weekly not
 
 **Input:** $ARGUMENTS
 
+If `$ARGUMENTS` is empty and `.wikime-cache` does not exist, respond: "Usage: `/note <what happened>` or use `wikime add` from any terminal first." and stop.
+
+If `$ARGUMENTS` is empty but `.wikime-cache` exists, proceed — the cache has content to process.
+
 ## Step 1: Determine the current week file
 
 Today:

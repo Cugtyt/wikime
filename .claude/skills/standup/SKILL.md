@@ -18,7 +18,7 @@ Available notes:
 
 ## Steps
 
-1. **Find yesterday's and today's notes.** Read the most recent 2 note files from the list above (the current week's file and possibly the previous week's). Scan for:
+1. **Find yesterday's and today's notes.** If no note files exist, respond: "No notes yet. Use `/note` to start capturing your work." and stop. Otherwise: Read the most recent 2 note files from the list above (the current week's file and possibly the previous week's). Scan for:
    - **Yesterday:** If today is Monday, look for Friday's section (`## Friday YYYY-MM-DD`). Otherwise look for the previous weekday's section. This may be in the previous week's file.
    - **Today:** Look for today's section (`## DayName YYYY-MM-DD`) in the current week's file.
 

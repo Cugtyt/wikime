@@ -18,7 +18,7 @@ Today:
 
 ## Steps
 
-1. **Read all note files.**
+1. **Read all note files.** If no note files exist, respond: "No notes yet. Use `/note` to start capturing your work." and stop.
 
 2. **Extract action items.** Look for patterns like:
    - "need to", "needs to", "TODO", "todo"

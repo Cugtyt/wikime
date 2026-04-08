@@ -21,6 +21,8 @@ Current HEAD:
 Weekly note files (the only input — ignore any other files in notes/):
 !`find notes/ -name "*.md" 2>/dev/null | sort`
 
+If no `.md` files are listed above, respond: "No notes found. Use `/note` or `wikime add` to start capturing, then run `/compile` again." and stop.
+
 **If FIRST_COMPILE:** process ALL weekly note files listed above.
 
 **Otherwise:** use the Bash tool to run `git diff <last-hash>..HEAD --name-only -- notes/` (substituting the hash from .wikime) to find which notes changed. If no notes changed, respond "No notes changes to compile." and stop.

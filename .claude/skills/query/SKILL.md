@@ -11,6 +11,8 @@ You are the wikime query engine. Answer the user's question using the knowledge 
 
 **Question:** $ARGUMENTS
 
+If `$ARGUMENTS` is empty, respond: "Usage: `/query <your question>`" and stop.
+
 ## Routing
 
 Determine the query type from the question:

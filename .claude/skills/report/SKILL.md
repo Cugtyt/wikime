@@ -23,7 +23,7 @@ If no argument given, default to "this week". If "last week", use the previous w
 
 ## Steps
 
-1. **Determine which note file(s) to read** based on the time range.
+1. **Determine which note file(s) to read** based on the time range. If no matching note files exist, respond: "No notes found for that period. Use `/note` to start capturing." and stop.
 
 2. **Read the note file(s).**
 

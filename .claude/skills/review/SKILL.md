@@ -26,7 +26,7 @@ If no argument given, default to "last 6 months." Parse the time range to determ
 
 ## Steps
 
-1. **Read all note files in the time range.**
+1. **Read all note files in the time range.** If no matching notes exist, respond: "No notes found for that period. A review needs at least a few weeks of notes." and stop.
 
 2. **Read `wiki/_index.md`** and relevant wiki articles for synthesized context.
 
