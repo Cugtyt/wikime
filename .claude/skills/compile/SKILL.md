@@ -84,6 +84,14 @@ Create topic directories with `mkdir -p` before writing files.
 - **Preserve impact context.** When notes include who was affected, what improved, or why something matters, carry that into the wiki article prominently.
 - Every topic folder needs an `_index.md`. Master `wiki/_index.md` must be kept up to date.
 
+After writing, show the user what was created/changed before committing:
+- **New articles:** show the full content
+- **Updated articles:** show what was added or changed
+
+Then ask: "Commit these changes? (or point out what to fix)"
+
+If the user requests changes, edit the articles and re-present. Only proceed to Step 8 after approval.
+
 ## Step 8: Archive check
 
 After writing updates, check if any topics should be archived. Follow the Wiki Archiving rules in `CLAUDE.md`. If all articles in a topic have `last_updated` older than 3 months and no new notes reference them, suggest moving the topic to `wiki/archive/`. Ask the user before archiving — don't do it automatically.
